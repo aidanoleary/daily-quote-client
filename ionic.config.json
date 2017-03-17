@@ -1,0 +1,12 @@
+{
+  "name": "dailyQuote",
+  "app_id": "",
+  "v2": true,
+  "typescript": true,
+  "proxies": [
+    {
+      "path": "/api",
+      "proxyUrl": "http://random-quote-app.herokuapp.com/api"
+    }
+  ]
+}

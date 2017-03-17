@@ -1,0 +1,5 @@
+{
+    "data": [
+        { "text": "Hello World", "author": "an author", "tags": ["fun", "nice"] }
+    ]
+}
