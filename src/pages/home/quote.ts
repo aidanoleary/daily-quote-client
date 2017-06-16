@@ -3,4 +3,5 @@ export class Quote {
     text: String;
     author: String;
     tags: String[];
+    likes: Number;
 }

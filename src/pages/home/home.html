@@ -1,6 +1,6 @@
 <ion-header>
   <ion-navbar>
-    <ion-title>Home</ion-title>
+    <ion-title text-center>Home</ion-title>
   </ion-navbar>
 </ion-header>
 
@@ -12,6 +12,8 @@
       <ion-card-content>
           <h2>{{currentQuote.text}}</h2>
           <h2><i>{{currentQuote.author}}</i></h2>
+          <h2>Likes: {{currentQuote.likes}}</h2>
+          <button (click)="likeQuote(currentQuote)" ion-button color="secondary">Like</button><button (click)="dislikeQuote(currentQuote)" ion-button color="danger">Dislike</button>
       </ion-card-content>
     </ion-card>
     <h4 text-center *ngIf="!currentQuote">Click the button below to get today's daily quote.</h4>

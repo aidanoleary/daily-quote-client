@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { OnInit } from '@angular/core';
 
-import { NavController } from 'ionic-angular';
+import { NavController, LoadingController } from 'ionic-angular';
 
 import { Quote } from './quote';
 import { QuoteService } from '../../services/quote.service';
@@ -11,19 +11,23 @@ import { QuoteService } from '../../services/quote.service';
   templateUrl: 'home.html'
 })
 export class HomePage implements OnInit {
-  constructor(public navCtrl: NavController, private quoteService: QuoteService) {}
+  constructor(public navCtrl: NavController, private quoteService: QuoteService, public loadingController: LoadingController) {}
 
   currentQuote: Quote;
 
   ngOnInit(): void {
-    //this.currentQuote = {};
-    //this.currentQuote = new Quote();
+    
   }
 
   getDailyQuote(): void {
-    //this.currentQuote = { text: "Hello World", author: "an author", tags: ["fun", "nice"] };
-    //this.currentQuote = this.quoteService.getDailyQuote();
+    let loader = this.loadingController.create({
+      content: "Loading..."
+    });
+    loader.present();
     this.quoteService.getDailyQuote()
-      .subscribe(quote => this.currentQuote = <Quote> quote);
+      .subscribe(quote => {
+        this.currentQuote = <Quote> quote;
+        loader.dismiss();
+      });
   }
 }
